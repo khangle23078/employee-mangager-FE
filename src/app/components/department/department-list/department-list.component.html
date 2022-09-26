@@ -5,7 +5,7 @@
       routerLink="add"
       class="btn btn-primary"
       data-bs-toggle="modal"
-      data-bs-target="#employeeAdd"
+      data-bs-target="#departmentAdd"
     >
       <i class="fa-regular fa-plus"></i>
       Thêm mới
@@ -36,14 +36,23 @@
               <td>1</td>
               <td>Phòng nhân sự</td>
               <td class="d-flex gap-2">
-                <a [routerLink]="['edit']" class="btn btn-outline-secondary"
+                <a
+                  [routerLink]="['/department/edit']"
+                  class="btn btn-outline-secondary"
                   >Sửa</a
                 >
-                <button class="btn btn-danger">Xóa</button>
+                <button
+                  class="btn btn-danger"
+                  data-bs-toggle="modal"
+                  data-bs-target="#departmentDelete"
+                >
+                  Xóa
+                </button>
               </td>
             </tr>
           </tbody>
         </table>
+        <app-department-delete></app-department-delete>
       </div>
     </div>
   </div>

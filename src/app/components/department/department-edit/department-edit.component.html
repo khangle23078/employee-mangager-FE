@@ -1,0 +1,28 @@
+<div>
+  <form #formAdd="ngForm" (submit)="onSubmit(formAdd.value)">
+    {{ department | json }}
+    <div class="mb-2">
+      <label for="name" class="form-label">Tên phòng ban</label>
+      <input
+        type="text"
+        class="form-control"
+        name="name"
+        [(ngModel)]="department.name"
+        #name="ngModel"
+        placeholder="nhập tên phòng ban"
+        required
+      />
+    </div>
+    <div *ngIf="name.invalid && (name.dirty || name.touched)">
+      <p *ngIf="name.errors?.['required']" class="text-danger">
+        Vui lòng nhập tên phòng ban
+      </p>
+    </div>
+    <div>
+      <button class="btn btn-primary" type="submit">Thêm mới</button>
+      <a routerLink="/department" class="btn btn-outline-secondary ms-2"
+        >Quay lại</a
+      >
+    </div>
+  </form>
+</div>
