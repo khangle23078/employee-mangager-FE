@@ -12,6 +12,7 @@ import { EmployeeAddComponent } from './components/employee/employee-add/employe
 import { DeparmentAddComponent } from './components/department/deparment-add/deparment-add.component';
 import { DepartmentEditComponent } from './components/department/department-edit/department-edit.component';
 import { DepartmentDeleteComponent } from './components/department/department-delete/department-delete.component';
+import { EmployeeDeleteComponent } from './components/employee/employee-delete/employee-delete.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,6 +23,7 @@ import { DepartmentDeleteComponent } from './components/department/department-de
     DeparmentAddComponent,
     DepartmentEditComponent,
     DepartmentDeleteComponent,
+    EmployeeDeleteComponent,
   ],
   imports: [
     BrowserModule,

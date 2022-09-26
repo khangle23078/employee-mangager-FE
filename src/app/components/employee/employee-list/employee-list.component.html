@@ -48,11 +48,18 @@
                 <a [routerLink]="['edit']" class="btn btn-outline-secondary"
                   >Sửa</a
                 >
-                <button class="btn btn-danger">Xóa</button>
+                <button
+                  class="btn btn-danger"
+                  data-bs-toggle="modal"
+                  data-bs-target="#employeeDelete"
+                >
+                  Xóa
+                </button>
               </td>
             </tr>
           </tbody>
         </table>
+        <app-employee-delete></app-employee-delete>
       </div>
     </div>
   </div>
