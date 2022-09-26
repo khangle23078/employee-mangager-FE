@@ -14,6 +14,7 @@ import { DepartmentEditComponent } from './components/department/department-edit
 import { DepartmentDeleteComponent } from './components/department/department-delete/department-delete.component';
 import { EmployeeDeleteComponent } from './components/employee/employee-delete/employee-delete.component';
 import { LoginComponent } from './pages/login/login.component';
+import { EmployeeEditComponent } from './components/employee/employee-edit/employee-edit.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +27,7 @@ import { LoginComponent } from './pages/login/login.component';
     DepartmentDeleteComponent,
     EmployeeDeleteComponent,
     LoginComponent,
+    EmployeeEditComponent,
   ],
   imports: [
     BrowserModule,
