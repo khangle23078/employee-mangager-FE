@@ -8,12 +8,74 @@
 >
   <div class="modal-dialog">
     <div class="modal-content">
-      <form #formAdd="ngForm">
-        <div class="form-control">
-          <label for="name">Tên phòng ban</label>
-          <input type="text" placeholder="nhập tên phòng ban" />
-        </div>
-      </form>
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Thêm nhân viên</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        {{ employee | json }}
+        <form #formAdd="ngForm" (submit)="onSubmit(formAdd.value)">
+          <div class="mb-3">
+            <label for="name" class="form-label">Họ và tên</label>
+            <input
+              type="text"
+              placeholder="nhập họ và tên"
+              class="form-control"
+              name="name"
+              [(ngModel)]="employee.fullName"
+              #fullName="ngModel"
+              required=""
+            />
+            <div
+              *ngIf="fullName.invalid && (fullName.dirty || fullName.touched)"
+            >
+              <p *ngIf="fullName.errors?.['required']" class="text-danger">
+                Vui lòng nhập họ và tên
+              </p>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="name" class="form-label">Email</label>
+            <input
+              type="text"
+              placeholder="nhập email"
+              class="form-control"
+              name="email"
+              [(ngModel)]="employee.email"
+              #email="ngModel"
+              required=""
+            />
+            <div *ngIf="email.invalid && (email.dirty || email.touched)">
+              <p *ngIf="email.errors?.['required']" class="text-danger">
+                Vui lòng nhập email
+              </p>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="name" class="form-label">Bằng cấp</label>
+            <input
+              type="text"
+              placeholder="nhập bằng cấp"
+              class="form-control"
+              name="degree"
+              [(ngModel)]="employee.degree"
+              #degree="ngModel"
+              required=""
+            />
+            <div *ngIf="degree.invalid && (degree.dirty || degree.touched)">
+              <p *ngIf="degree.errors?.['required']" class="text-danger">
+                Vui lòng nhập bằng cấp
+              </p>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">Thêm mới</button>
+        </form>
+      </div>
     </div>
   </div>
 </div>

@@ -1,11 +1,16 @@
 <div class="pt-4">
   <div class="d-flex justify-content-between">
     <h3 class="page-title">Nhân viên</h3>
-    <a routerLink="add" class="btn btn-primary">
+    <button
+      class="btn btn-primary"
+      data-bs-toggle="modal"
+      data-bs-target="#employeeAdd"
+    >
       <i class="fa-regular fa-plus"></i>
       Thêm mới
-    </a>
+    </button>
   </div>
+  <app-employee-add></app-employee-add>
   <div class="card shadow mb-4 mt-4">
     <div class="card-header py-3">
       <h6 class="m-0 font-weight-bold text-gray-800">Danh sách nhân viên</h6>

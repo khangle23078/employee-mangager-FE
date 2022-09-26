@@ -14,14 +14,14 @@ const routes: Routes = [
         path: 'department',
         component: DepartmentListComponent,
       },
-      { path: 'department/edit', component: DepartmentEditComponent }
-
+      { path: 'department/edit', component: DepartmentEditComponent },
+      {
+        path: 'employee',
+        component: EmployeeListComponent,
+      },
     ]
   },
-  {
-    path: 'employee',
-    component: EmployeeListComponent,
-  },
+
 ];
 
 @NgModule({
