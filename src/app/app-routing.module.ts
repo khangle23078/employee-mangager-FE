@@ -8,13 +8,17 @@ const routes: Routes = [
   {
     path: '', component: HomeComponent, children: [
       {
-        path: 'department', component: DepartmentListComponent, children: [
+        path: 'department',
+        component: DepartmentListComponent,
+        children: [
           { path: 'add', component: DepartmentListComponent }
         ]
       },
       {
-        path : 'employee',component : EmployeeListComponent,children : [
-          
+        path: 'employee',
+        component: EmployeeListComponent,
+        children: [
+
         ]
       }
     ]

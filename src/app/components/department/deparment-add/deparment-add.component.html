@@ -1,0 +1,45 @@
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="employeeAdd"
+  tabindex="-1"
+  aria-labelledby="employeeAdd"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Thêm phòng ban</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form #formAdd="ngForm" (submit)="onSubmit(formAdd.value)">
+          {{ department | json }}
+          <div class="mb-2">
+            <label for="name" class="form-label">Tên phòng ban</label>
+            <input
+              type="text"
+              class="form-control"
+              name="name"
+              [(ngModel)]="department.name"
+              #name="ngModel"
+              placeholder="nhập tên phòng ban"
+              required
+            />
+          </div>
+          <div *ngIf="name.invalid && (name.dirty || name.touched)">
+            <p *ngIf="name.errors?.['required']" class="text-danger">
+              Vui lòng nhập tên phòng ban
+            </p>
+          </div>
+          <button class="btn btn-primary" type="submit">Thêm mới</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
