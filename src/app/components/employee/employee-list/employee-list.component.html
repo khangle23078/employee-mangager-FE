@@ -1,6 +1,6 @@
 <div class="pt-4">
   <div class="d-flex justify-content-between">
-    <h3 class="page-title">Phòng ban</h3>
+    <h3 class="page-title">Nhân viên</h3>
     <a routerLink="add" class="btn btn-primary">
       <i class="fa-regular fa-plus"></i>
       Thêm mới
@@ -8,7 +8,7 @@
   </div>
   <div class="card shadow mb-4 mt-4">
     <div class="card-header py-3">
-      <h6 class="m-0 font-weight-bold text-gray-800">Danh sách phòng ban</h6>
+      <h6 class="m-0 font-weight-bold text-gray-800">Danh sách nhân viên</h6>
     </div>
     <div class="card-body">
       <div class="table-responsive">
@@ -21,15 +21,25 @@
           <thead>
             <tr>
               <th>STT</th>
-              <th>Tên phòng ban</th>
+              <th>Họ và tên</th>
+              <th>Ngày sinh</th>
+              <th>Chức vụ</th>
+              <th>Bằng cấp</th>
+              <th>Chuyên môn</th>
+              <th>Mã phòng ban</th>
               <th>Thao tác</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>1</td>
-              <td>Phòng nhân sự</td>
-              <td class="d-flex gap-2">
+              <td>System Architect</td>
+              <td>Edinburgh</td>
+              <td>61</td>
+              <td>2011/04/25</td>
+              <td>$320,800</td>
+              <td>Sửa Văn bản</td>
+              <td class="d-flex justify-content-around">
                 <a [routerLink]="['edit']" class="btn btn-outline-secondary"
                   >Sửa</a
                 >
