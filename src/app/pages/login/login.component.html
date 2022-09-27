@@ -1,15 +1,15 @@
 <div class="d-flex justify-content-center align-items-center mt-5 flex-column">
   <h3 class="mb-3">Đăng nhập</h3>
   {{ admin | json }}
-  <form #loginForm="ngForm" class="w-25" (submit)="onSubmit()">
+  <form #loginForm="ngForm" class="w-25" (submit)="onSubmit(loginForm.value)">
     <div class="mb-3">
       <label for="userName" class="form-label">Tên đăng nhập</label>
       <input
         type="text"
         placeholder="nhập tên đăng nhập"
         class="form-control"
-        name="userName"
-        [(ngModel)]="admin.userName"
+        name="username"
+        [(ngModel)]="admin.username"
         #userName="ngModel"
       />
     </div>
@@ -19,8 +19,8 @@
         type="password"
         placeholder="nhập mật khẩu"
         class="form-control"
-        name="password"
-        [(ngModel)]="admin.password"
+        name="pass"
+        [(ngModel)]="admin.pass"
         #password="ngModel"
       />
     </div>

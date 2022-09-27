@@ -68,6 +68,9 @@
           </button>
         </div>
       </form>
+      <div *ngIf="userName">
+        <a href="">Xin chào {{ userName }}</a>
+      </div>
       <a class="btn btn-primary" routerLink="login">Đăng nhập</a>
     </div>
     <main class="container-fluid">
