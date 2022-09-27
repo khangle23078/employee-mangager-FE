@@ -8,10 +8,10 @@ import { employee } from 'src/app/models/employee';
 })
 export class EmployeeAddComponent implements OnInit {
   employee: employee = {
-    fullName: '',
-    birthDay: '',
+    fullname: '',
+    birthday: '',
     email: '',
-    role_id: 0,
+    roleId: 0,
     department_id: 0,
     degree: '',
     specialize: ''

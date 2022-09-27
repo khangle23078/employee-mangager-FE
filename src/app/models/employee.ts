@@ -1,11 +1,11 @@
 export interface employee {
    id?: string,
-   userName?: string,
-   fullName: string,
-   birthDay: string,
+   username?: string,
+   fullname: string,
+   birthday: string,
    email: string,
    pass?: string,
-   role_id: number,
+   roleId: number,
    department_id: number,
    degree: string,
    specialize: string

@@ -68,10 +68,16 @@
           </button>
         </div>
       </form>
+
       <div *ngIf="userName">
-        <a href="">Xin chào {{ userName }}</a>
+        xin chào {{ userName }}
+        <button class="btn btn-outline-secondary mx-2" (click)="logout()">
+          Đăng xuất
+        </button>
       </div>
-      <a class="btn btn-primary" routerLink="login">Đăng nhập</a>
+      <a class="btn btn-primary" routerLink="login" [hidden]="userName"
+        >Đăng nhập</a
+      >
     </div>
     <main class="container-fluid">
       <router-outlet></router-outlet>

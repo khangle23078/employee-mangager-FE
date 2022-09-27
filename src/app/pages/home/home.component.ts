@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   userName?: string = '';
-  constructor() { }
+  constructor(private router: Router, private authService: AuthService) { }
 
   ngOnInit(): void {
     this.getUserName();
@@ -15,9 +17,12 @@ export class HomeComponent implements OnInit {
 
   getUserName() {
     const data = JSON.parse(localStorage.getItem('user') as string).username
-    console.log(data);
-
     this.userName = data;
     return data;
+  }
+
+  logout() {
+    this.authService.logout();
+    this.router.navigateByUrl('/login')
   }
 }

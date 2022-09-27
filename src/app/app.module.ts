@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HomeComponent } from './pages/home/home.component';
 import { DepartmentListComponent } from './components/department/department-list/department-list.component';
 import { EmployeeListComponent } from './components/employee/employee-list/employee-list.component';
@@ -15,6 +15,8 @@ import { DepartmentDeleteComponent } from './components/department/department-de
 import { EmployeeDeleteComponent } from './components/employee/employee-delete/employee-delete.component';
 import { LoginComponent } from './pages/login/login.component';
 import { EmployeeEditComponent } from './components/employee/employee-edit/employee-edit.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,9 +35,11 @@ import { EmployeeEditComponent } from './components/employee/employee-edit/emplo
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

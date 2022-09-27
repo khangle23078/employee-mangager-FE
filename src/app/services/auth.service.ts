@@ -14,5 +14,15 @@ export class AuthService {
     return this.http.post<any>(`${this.apiUrl}/auth/login`, data);
   }
 
-  
+  logout() {
+    return localStorage.removeItem('user');
+  }
+
+  getToken() {
+    const token = JSON.parse(localStorage.getItem('user') as string).token;
+    console.log(token);
+
+    return token;
+  }
+
 }

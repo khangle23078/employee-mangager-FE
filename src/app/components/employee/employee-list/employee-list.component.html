@@ -36,14 +36,14 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>System Architect</td>
-              <td>Edinburgh</td>
-              <td>61</td>
-              <td>2011/04/25</td>
-              <td>$320,800</td>
-              <td>Sửa Văn bản</td>
+            <tr *ngFor="let employee of employees; index as index">
+              <td>{{ index + 1 }}</td>
+              <td>{{ employee.fullname }}</td>
+              <td>{{ employee.birthday }}</td>
+              <td>{{ employee.roleId }}</td>
+              <td>{{ employee.degree }}</td>
+              <td>{{ employee.specialize }}</td>
+              <td>{{ employee.department_id }}</td>
               <td class="d-flex justify-content-around">
                 <a
                   [routerLink]="['/employee/edit']"
