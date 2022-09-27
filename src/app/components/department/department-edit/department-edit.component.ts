@@ -8,7 +8,7 @@ import { department } from 'src/app/models/department';
 })
 export class DepartmentEditComponent implements OnInit {
   department: department = {
-    name: ''
+    departmentName: ''
   }
 
 

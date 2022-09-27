@@ -28,6 +28,7 @@
               <th>STT</th>
               <th>Họ và tên</th>
               <th>Ngày sinh</th>
+              <th>Email</th>
               <th>Chức vụ</th>
               <th>Bằng cấp</th>
               <th>Chuyên môn</th>
@@ -39,7 +40,8 @@
             <tr *ngFor="let employee of employees; index as index">
               <td>{{ index + 1 }}</td>
               <td>{{ employee.fullname }}</td>
-              <td>{{ employee.birthday }}</td>
+              <td>{{ employee.birthday | date: "mediumDate" }}</td>
+              <td>{{ employee.email }}</td>
               <td>{{ employee.roleId }}</td>
               <td>{{ employee.degree }}</td>
               <td>{{ employee.specialize }}</td>

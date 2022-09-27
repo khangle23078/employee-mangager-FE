@@ -19,7 +19,7 @@ export class DepartmentService {
   constructor(private http: HttpClient, private authService: AuthService) { }
 
   getDepartments(): Observable<department[]> {
-    return this.http.get<department[]>(`${this.apiUrl}/department`, this.options);
+    return this.http.get<department[]>(`${this.apiUrl}/department/getAll`, this.options);
   }
 
   getDepartmentById(id: number): Observable<department> {
