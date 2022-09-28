@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { department } from '../models/department';
+import { employee } from '../models/employee';
 import { AuthService } from './auth.service';
 
 @Injectable({
@@ -35,7 +36,7 @@ export class DepartmentService {
   }
 
   deleteDepartmentById(id: number): Observable<department> {
-    return this.http.post<department>(`${this.apiUrl}/department/delete/${id}`, this.options);
+    return this.http.post<department>(`${this.apiUrl}/department/delete?id=${id}`, id, this.options);
   }
 
 }

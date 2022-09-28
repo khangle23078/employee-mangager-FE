@@ -34,7 +34,6 @@ export class DepartmentEditComponent implements OnInit {
         alert("cập nhật thành công");
         this.router.navigateByUrl('/department')
       })
-
     }
   }
 }

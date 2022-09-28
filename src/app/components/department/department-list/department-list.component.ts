@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { department } from 'src/app/models/department';
 import { DepartmentService } from 'src/app/services/department.service';
 
@@ -9,7 +10,8 @@ import { DepartmentService } from 'src/app/services/department.service';
 })
 export class DepartmentListComponent implements OnInit {
   departments: department[] = []
-  constructor(private departmentService: DepartmentService) { }
+
+  constructor(private departmentService: DepartmentService, private router: Router) { }
 
   ngOnInit(): void {
     this.getAll();
@@ -21,4 +23,16 @@ export class DepartmentListComponent implements OnInit {
       this.departments = data;
     })
   }
+
+  onRemove(id: any): void {
+    const existsDepartment = this.departments.find((item) => item.department_id === id);
+    if (window.confirm('bạn có muốn xóa hay không ?')) {
+      this.departmentService.deleteDepartmentById(id).subscribe((data) => {
+        alert("Xóa thành công")
+        console.log(data);
+        this.router.navigate([this.router.url])
+      })
+    }
+  }
+
 }

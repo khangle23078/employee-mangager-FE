@@ -21,7 +21,13 @@ export class DeparmentAddComponent implements OnInit {
 
   onSubmit(data: department) {
     this.departmentService.createDepartment(data).subscribe((data) => {
-      alert("Thêm thành công");
+      try {
+        alert("Thêm thành công")
+        console.log(data);
+        this.router.navigate([this.router.url])
+      } catch (error) {
+        alert(error)
+      }
     })
   }
 

@@ -43,16 +43,57 @@
                 >
                 <button
                   class="btn btn-danger"
-                  data-bs-toggle="modal"
-                  data-bs-target="#departmentDelete"
+                  (click)="onRemove(department.department_id)"
                 >
                   Xóa
                 </button>
+                <!-- Modal Delete-->
+                <!-- <div
+                   data-bs-toggle="modal"
+                  data-bs-target="#departmentDelete"
+                  class="modal fade"
+                  id="departmentDelete"
+                  tabindex="-1"
+                  aria-labelledby="departmentDelete"
+                  aria-hidden="true"
+                >
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">
+                          Xóa phòng ban
+                        </h5>
+                        <button
+                          type="button"
+                          class="btn-close"
+                          data-bs-dismiss="modal"
+                          aria-label="Close"
+                        ></button>
+                      </div>
+                      <div class="modal-body">Bạn có muốn xóa hay không?</div>
+                      <div class="modal-footer">
+                        <button
+                          type="button"
+                          class="btn btn-secondary"
+                          data-bs-dismiss="modal"
+                        >
+                          Hủy
+                        </button>
+                        <button
+                          type="button"
+                          class="btn btn-primary"
+                          (click)="onRemove(department.department_id)"
+                        >
+                          Xóa
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div> -->
               </td>
             </tr>
           </tbody>
         </table>
-        <app-department-delete></app-department-delete>
       </div>
     </div>
   </div>
