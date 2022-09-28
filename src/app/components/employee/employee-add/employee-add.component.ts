@@ -39,7 +39,8 @@ export class EmployeeAddComponent implements OnInit {
 
   onSubmit(data: employee) {
     this.employeeService.createEmployee(data).subscribe((data) => {
-      console.log(data);
+      alert("thêm thành công")
+      window.location.reload();
     })
   }
 }

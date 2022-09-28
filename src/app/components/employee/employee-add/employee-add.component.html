@@ -21,12 +21,12 @@
         {{ employee | json }}
         <form #formAdd="ngForm" (submit)="onSubmit(formAdd.value)">
           <div class="mb-3">
-            <label for="name" class="form-label">Họ và tên</label>
+            <label for="fullname" class="form-label">Họ và tên</label>
             <input
               type="text"
               placeholder="nhập họ và tên"
               class="form-control"
-              name="name"
+              name="fullname"
               [(ngModel)]="employee.fullname"
               #fullName="ngModel"
               required=""
@@ -53,6 +53,46 @@
             <div *ngIf="email.invalid && (email.dirty || email.touched)">
               <p *ngIf="email.errors?.['required']" class="text-danger">
                 Vui lòng nhập email
+              </p>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="username" class="form-label">Tên tài khoản</label>
+            <input
+              type="text"
+              placeholder="nhập tên tài khoản"
+              class="form-control"
+              name="username"
+              [(ngModel)]="employee.username"
+              #username="ngModel"
+              required=""
+            />
+            <div
+              *ngIf="username.invalid && (username.dirty || username.touched)"
+            >
+              <p *ngIf="username.errors?.['required']" class="text-danger">
+                Vui lòng nhập tên tài khoản
+              </p>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="pass" class="form-label">Mật khẩu</label>
+            <input
+              type="password"
+              placeholder="nhập mật khẩu"
+              class="form-control"
+              name="pass"
+              [(ngModel)]="employee.pass"
+              #pass="ngModel"
+              required
+              minlength="6"
+            />
+            <div *ngIf="pass.invalid && (pass.dirty || pass.touched)">
+              <p *ngIf="pass.errors?.['required']" class="text-danger">
+                Vui lòng nhập mật khẩu
+              </p>
+              <p *ngIf="pass.errors?.['minlength']" class="text-danger">
+                Mật khẩu phải ít nhất 6 kí tự
               </p>
             </div>
           </div>
@@ -142,7 +182,7 @@
               <option selected>Chọn phòng ban</option>
               <option
                 *ngFor="let department of departments"
-                [ngValue]="department.departmentName"
+                [ngValue]="department.department_id"
               >
                 {{ department.departmentName }}
               </option>

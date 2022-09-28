@@ -30,7 +30,7 @@ export class DepartmentListComponent implements OnInit {
       this.departmentService.deleteDepartmentById(id).subscribe((data) => {
         alert("Xóa thành công")
         console.log(data);
-        this.router.navigate([this.router.url])
+        window.location.reload();
       })
     }
   }
