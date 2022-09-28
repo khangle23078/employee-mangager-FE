@@ -31,12 +31,12 @@ export class EmployeeService {
     return this.http.post<employee>(`${this.apiUrl}/employee/insert`, data, this.options)
   }
 
-  updateEmployeeById(data: employee): Observable<employee> {
-    return this.http.put<employee>(`${this.apiUrl}/employee/${data.id}`, data, this.options)
+  updateEmployeeById(data: employee, id: number): Observable<employee> {
+    return this.http.post<employee>(`${this.apiUrl}/employee/update?id=${id}`, data, this.options)
   }
 
   deleteEmployeeById(id: number): Observable<employee> {
-    return this.http.delete<employee>(`${this.apiUrl}/employee/${id}`, this.options);
+    return this.http.post<employee>(`${this.apiUrl}/employee/${id}`, id, this.options);
   }
 
 

@@ -18,7 +18,6 @@
         ></button>
       </div>
       <div class="modal-body">
-        {{ employee | json }}
         <form #formAdd="ngForm" (submit)="onSubmit(formAdd.value)">
           <div class="mb-3">
             <label for="fullname" class="form-label">Họ và tên</label>
@@ -134,15 +133,20 @@
           </div>
           <div class="mb-3">
             <label for="specialize" class="form-label">Chức vụ</label>
-            <input
-              type="text"
-              placeholder="nhập chức vụ"
-              class="form-control"
+            <select
               name="roleId"
+              id="roleId"
               [(ngModel)]="employee.roleId"
               #roleId="ngModel"
               required
-            />
+              class="form-select"
+            >
+              <option value="" selected>Chọn chức vụ</option>
+              <option value="1">Giám đốc</option>
+              <option value="2">Trưởng phòng</option>
+              <option value="3">Nhân viên nhân sự</option>
+              <option value="4">Nhân viên</option>
+            </select>
             <div *ngIf="roleId.invalid && (roleId.dirty || roleId.touched)">
               <p *ngIf="roleId.errors?.['required']" class="text-danger">
                 Vui lòng nhập chức vụ

@@ -1,6 +1,5 @@
 <div class="d-flex justify-content-center align-items-center mt-5 flex-column">
   <h3 class="mb-3">Đăng nhập</h3>
-  {{ admin | json }}
   <form #loginForm="ngForm" class="w-25" (submit)="onSubmit(loginForm.value)">
     <div class="mb-3">
       <label for="userName" class="form-label">Tên đăng nhập</label>

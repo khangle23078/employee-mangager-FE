@@ -14,6 +14,7 @@ import { DepartmentEditComponent } from './components/department/department-edit
 import { EmployeeDeleteComponent } from './components/employee/employee-delete/employee-delete.component';
 import { LoginComponent } from './pages/login/login.component';
 import { EmployeeEditComponent } from './components/employee/employee-edit/employee-edit.component';
+import { RoleListComponent } from './pages/role-list/role-list.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { EmployeeEditComponent } from './components/employee/employee-edit/emplo
     EmployeeDeleteComponent,
     LoginComponent,
     EmployeeEditComponent,
+    RoleListComponent,
   ],
   imports: [
     BrowserModule,

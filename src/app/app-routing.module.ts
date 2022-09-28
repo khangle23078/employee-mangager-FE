@@ -6,6 +6,7 @@ import { EmployeeEditComponent } from './components/employee/employee-edit/emplo
 import { EmployeeListComponent } from './components/employee/employee-list/employee-list.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
+import { RoleListComponent } from './pages/role-list/role-list.component';
 
 const routes: Routes = [
   {
@@ -16,18 +17,26 @@ const routes: Routes = [
         path: 'department',
         component: DepartmentListComponent,
       },
-      { path: 'department/edit/:id', component: DepartmentEditComponent },
+      {
+        path: 'department/edit/:id',
+        component: DepartmentEditComponent
+      },
       {
         path: 'employee',
         component: EmployeeListComponent,
       },
-      { path: 'employee/edit/:id', component: EmployeeEditComponent },
+      {
+        path: 'employee/edit/:id',
+        component: EmployeeEditComponent
+      },
+      { path: 'role', component: RoleListComponent }
     ]
   },
   {
     path: 'login',
     component: LoginComponent
-  }
+  },
+
 ];
 
 @NgModule({
