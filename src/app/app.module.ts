@@ -6,15 +6,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HomeComponent } from './pages/home/home.component';
-import { DepartmentListComponent } from './components/department/department-list/department-list.component';
-import { EmployeeListComponent } from './components/employee/employee-list/employee-list.component';
-import { EmployeeAddComponent } from './components/employee/employee-add/employee-add.component';
-import { DeparmentAddComponent } from './components/department/deparment-add/deparment-add.component';
-import { DepartmentEditComponent } from './components/department/department-edit/department-edit.component';
-import { EmployeeDeleteComponent } from './components/employee/employee-delete/employee-delete.component';
+import { DepartmentListComponent } from './pages/department/department-list/department-list.component';
+import { EmployeeListComponent } from './pages/employee/employee-list/employee-list.component';
+import { EmployeeAddComponent } from './components/modal/employee-add/employee-add.component';
+import { DeparmentAddComponent } from './components/modal/deparment-add/deparment-add.component';
+import { DepartmentEditComponent } from './pages/department/department-edit/department-edit.component';
 import { LoginComponent } from './pages/login/login.component';
-import { EmployeeEditComponent } from './components/employee/employee-edit/employee-edit.component';
-import { RoleListComponent } from './pages/role-list/role-list.component';
+import { EmployeeEditComponent } from './pages/employee/employee-edit/employee-edit.component';
+import { RoleListComponent } from './pages/role/role-list/role-list.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 
 @NgModule({
@@ -26,10 +26,10 @@ import { RoleListComponent } from './pages/role-list/role-list.component';
     EmployeeAddComponent,
     DeparmentAddComponent,
     DepartmentEditComponent,
-    EmployeeDeleteComponent,
     LoginComponent,
     EmployeeEditComponent,
     RoleListComponent,
+    SidebarComponent,
   ],
   imports: [
     BrowserModule,

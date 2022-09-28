@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DepartmentEditComponent } from './components/department/department-edit/department-edit.component';
-import { DepartmentListComponent } from './components/department/department-list/department-list.component';
-import { EmployeeEditComponent } from './components/employee/employee-edit/employee-edit.component';
-import { EmployeeListComponent } from './components/employee/employee-list/employee-list.component';
+import { DepartmentEditComponent } from './pages/department/department-edit/department-edit.component';
+import { DepartmentListComponent } from './pages/department/department-list/department-list.component';
+import { EmployeeEditComponent } from './pages/employee/employee-edit/employee-edit.component';
+import { EmployeeListComponent } from './pages/employee/employee-list/employee-list.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
-import { RoleListComponent } from './pages/role-list/role-list.component';
+import { RoleListComponent } from './pages/role/role-list/role-list.component';
 
 const routes: Routes = [
   {
