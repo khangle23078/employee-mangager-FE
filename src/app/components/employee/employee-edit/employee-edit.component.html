@@ -1,63 +1,166 @@
-<div>
-  <h3>Sửa nhân viên</h3>
-  <form #formAdd="ngForm" (submit)="onSubmit(formAdd.value)">
-    {{ employee | json }}
-    <div class="mb-2">
-      <label for="name" class="form-label">Tên phòng ban</label>
-      <input
-        type="text"
-        class="form-control"
-        name="fullName"
-        [(ngModel)]="employee.fullname"
-        #fullName="ngModel"
-        placeholder="nhập tên phòng ban"
-        required
-      />
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="employeeAdd"
+  tabindex="-1"
+  aria-labelledby="employeeAdd"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Sửa nhân viên</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        {{ employee | json }}
+        <form #formAdd="ngForm" (submit)="onSubmit(formAdd.value)">
+          <div class="mb-3">
+            <label for="name" class="form-label">Họ và tên</label>
+            <input
+              type="text"
+              placeholder="nhập họ và tên"
+              class="form-control"
+              name="name"
+              [(ngModel)]="employee.fullname"
+              #fullName="ngModel"
+              required=""
+            />
+            <div
+              *ngIf="fullName.invalid && (fullName.dirty || fullName.touched)"
+            >
+              <p *ngIf="fullName.errors?.['required']" class="text-danger">
+                Vui lòng nhập họ và tên
+              </p>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="name" class="form-label">Email</label>
+            <input
+              type="text"
+              placeholder="nhập email"
+              class="form-control"
+              name="email"
+              [(ngModel)]="employee.email"
+              #email="ngModel"
+              required=""
+            />
+            <div *ngIf="email.invalid && (email.dirty || email.touched)">
+              <p *ngIf="email.errors?.['required']" class="text-danger">
+                Vui lòng nhập email
+              </p>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="name" class="form-label">Ngày sinh</label>
+            <input
+              type="date"
+              placeholder="nhập ngày sinh"
+              class="form-control"
+              name="birthday"
+              [(ngModel)]="employee.birthday"
+              #birthday="ngModel"
+              required=""
+            />
+            <div
+              *ngIf="birthday.invalid && (birthday.dirty || birthday.touched)"
+            >
+              <p *ngIf="birthday.errors?.['required']" class="text-danger">
+                Vui lòng nhập ngày sinh
+              </p>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="name" class="form-label">Bằng cấp</label>
+            <input
+              type="text"
+              placeholder="nhập bằng cấp"
+              class="form-control"
+              name="degree"
+              [(ngModel)]="employee.degree"
+              #degree="ngModel"
+              required=""
+            />
+            <div *ngIf="degree.invalid && (degree.dirty || degree.touched)">
+              <p *ngIf="degree.errors?.['required']" class="text-danger">
+                Vui lòng nhập bằng cấp
+              </p>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="specialize" class="form-label">Chức vụ</label>
+            <input
+              type="text"
+              placeholder="nhập chức vụ"
+              class="form-control"
+              name="roleId"
+              [(ngModel)]="employee.roleId"
+              #roleId="ngModel"
+              required
+            />
+            <div *ngIf="roleId.invalid && (roleId.dirty || roleId.touched)">
+              <p *ngIf="roleId.errors?.['required']" class="text-danger">
+                Vui lòng nhập chức vụ
+              </p>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="specialize" class="form-label">Chuyên môn</label>
+            <input
+              type="text"
+              placeholder="nhập chức vụ"
+              class="form-control"
+              name="specialize"
+              [(ngModel)]="employee.specialize"
+              #specialize="ngModel"
+              required
+            />
+            <div
+              *ngIf="
+                specialize.invalid && (specialize.dirty || specialize.touched)
+              "
+            >
+              <p *ngIf="specialize.errors?.['required']" class="text-danger">
+                Vui lòng chuyên môn
+              </p>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="specialize" class="form-label">Phòng ban</label>
+            <select
+              class="form-select"
+              name="department"
+              [(ngModel)]="employee.department_id"
+              #department_id="ngModel"
+              required
+            >
+              <option selected>Chọn phòng ban</option>
+              <option
+                *ngFor="let department of departments"
+                [ngValue]="department.departmentName"
+              >
+                {{ department.departmentName }}
+              </option>
+            </select>
+            <div
+              *ngIf="
+                department_id.invalid &&
+                (department_id.dirty || department_id.touched)
+              "
+            >
+              <p *ngIf="department_id.errors?.['required']" class="text-danger">
+                Vui lòng nhập chuyên môn
+              </p>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">Sửa</button>
+        </form>
+      </div>
     </div>
-    <div *ngIf="fullName.invalid && (fullName.dirty || fullName.touched)">
-      <p *ngIf="fullName.errors?.['required']" class="text-danger">
-        Vui lòng nhập họ và tên
-      </p>
-    </div>
-    <div class="mb-2">
-      <label for="name" class="form-label">Email</label>
-      <input
-        type="text"
-        class="form-control"
-        name="email"
-        [(ngModel)]="employee.email"
-        #email="ngModel"
-        placeholder="nhập tên phòng ban"
-        required
-      />
-    </div>
-    <div *ngIf="email.invalid && (email.dirty || email.touched)">
-      <p *ngIf="email.errors?.['required']" class="text-danger">
-        Vui lòng nhập email
-      </p>
-    </div>
-    <div class="mb-2">
-      <label for="name" class="form-label">Tên phòng ban</label>
-      <input
-        type="text"
-        class="form-control"
-        name="fullName"
-        [(ngModel)]="employee.fullname"
-        #fullName="ngModel"
-        placeholder="nhập tên phòng ban"
-        required
-      />
-    </div>
-    <div *ngIf="fullName.invalid && (fullName.dirty || fullName.touched)">
-      <p *ngIf="fullName.errors?.['required']" class="text-danger">
-        Vui lòng nhập tên phòng ban
-      </p>
-    </div>
-    <div>
-      <button class="btn btn-primary" type="submit">Thêm mới</button>
-      <a routerLink="/employee" class="btn btn-outline-secondary ms-2"
-        >Quay lại</a
-      >
-    </div>
-  </form>
+  </div>
 </div>

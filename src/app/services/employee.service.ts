@@ -24,11 +24,11 @@ export class EmployeeService {
   }
 
   getEmployeeById(id: number): Observable<employee> {
-    return this.http.get<employee>(`${this.apiUrl}/employee/${id}`, this.options);
+    return this.http.get<employee>(`${this.apiUrl}/employee/getById?id=${id}`, this.options);
   }
 
   createEmployee(data: employee): Observable<employee> {
-    return this.http.post<employee>(`${this.apiUrl}/employee`, data, this.options)
+    return this.http.post<employee>(`${this.apiUrl}/employee/insert`, data, this.options)
   }
 
   updateEmployeeById(data: employee): Observable<employee> {
@@ -38,4 +38,6 @@ export class EmployeeService {
   deleteEmployeeById(id: number): Observable<employee> {
     return this.http.delete<employee>(`${this.apiUrl}/employee/${id}`, this.options);
   }
+
+
 }

@@ -33,11 +33,11 @@
           </thead>
           <tbody>
             <tr *ngFor="let department of departments; index as index">
-              <td>{{ index + 1 }}</td>
+              <td>{{ department.department_id }}</td>
               <td>{{ department.departmentName }}</td>
               <td class="d-flex gap-2">
                 <a
-                  [routerLink]="['/department/edit']"
+                  [routerLink]="['/department/edit', department.department_id]"
                   class="btn btn-outline-secondary"
                   >Sửa</a
                 >

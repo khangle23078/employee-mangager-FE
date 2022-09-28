@@ -16,12 +16,12 @@ const routes: Routes = [
         path: 'department',
         component: DepartmentListComponent,
       },
-      { path: 'department/edit', component: DepartmentEditComponent },
+      { path: 'department/edit/:id', component: DepartmentEditComponent },
       {
         path: 'employee',
         component: EmployeeListComponent,
       },
-      { path: 'employee/edit', component: EmployeeEditComponent },
+      { path: 'employee/edit/:id', component: EmployeeEditComponent },
     ]
   },
   {

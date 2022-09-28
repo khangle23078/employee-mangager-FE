@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { department } from 'src/app/models/department';
 import { employee } from 'src/app/models/employee';
+import { DepartmentService } from 'src/app/services/department.service';
+import { EmployeeService } from 'src/app/services/employee.service';
 
 @Component({
   selector: 'app-employee-add',
@@ -16,12 +19,27 @@ export class EmployeeAddComponent implements OnInit {
     degree: '',
     specialize: ''
   }
-  onSubmit(data: employee) {
-    console.log(data);
-  }
-  constructor() { }
+  departments: department[] = [];
+  constructor(
+    private departmentService: DepartmentService,
+    private employeeService: EmployeeService
+  ) { }
 
   ngOnInit(): void {
+    this.getDepartments();
   }
 
+  getDepartments() {
+    this.departmentService.getDepartments().subscribe((data) => {
+      console.log(data);
+
+      this.departments = data;
+    })
+  }
+
+  onSubmit(data: employee) {
+    this.employeeService.createEmployee(data).subscribe((data) => {
+      console.log(data);
+    })
+  }
 }

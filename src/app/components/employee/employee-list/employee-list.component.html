@@ -48,7 +48,7 @@
               <td>{{ employee.department_id }}</td>
               <td class="d-flex justify-content-around">
                 <a
-                  [routerLink]="['/employee/edit']"
+                  [routerLink]="['/employee/edit', employee.id]"
                   class="btn btn-outline-secondary"
                   >Sửa</a
                 >

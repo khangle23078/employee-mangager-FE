@@ -21,19 +21,46 @@
         <form #formAdd="ngForm" (submit)="onSubmit(formAdd.value)">
           {{ department | json }}
           <div class="mb-2">
-            <label for="name" class="form-label">Tên phòng ban</label>
+            <label for="department_id" class="form-label">Mã phòng ban</label>
             <input
-              type="text"
+              type="number"
               class="form-control"
-              name="name"
-              [(ngModel)]="department.departmentName"
-              #name="ngModel"
+              name="department_id"
+              [(ngModel)]="department.department_id"
+              #department_id="ngModel"
               placeholder="nhập tên phòng ban"
               required
             />
           </div>
-          <div *ngIf="name.invalid && (name.dirty || name.touched)">
-            <p *ngIf="name.errors?.['required']" class="text-danger">
+          <div
+            *ngIf="
+              department_id.invalid &&
+              (department_id.dirty || department_id.touched)
+            "
+          >
+            <p *ngIf="department_id.errors?.['required']" class="text-danger">
+              Vui lòng nhập mã phòng ban
+            </p>
+          </div>
+          <div class="mb-2">
+            <label for="name" class="form-label">Tên phòng ban</label>
+            <input
+              type="text"
+              class="form-control"
+              name="departmentName"
+              [(ngModel)]="department.departmentName"
+              #departmentName="ngModel"
+              placeholder="nhập tên phòng ban"
+              required
+            />
+          </div>
+          <div
+            *ngIf="
+              departmentName.invalid &&
+              (departmentName.dirty || departmentName.touched)
+            "
+          >
+            <p *ngIf="departmentName.errors?.['required']" class="text-danger">
               Vui lòng nhập tên phòng ban
             </p>
           </div>

@@ -2,24 +2,51 @@
   <form #formAdd="ngForm" (submit)="onSubmit(formAdd.value)">
     {{ department | json }}
     <div class="mb-2">
+      <label for="department_id" class="form-label">Mã phòng ban</label>
+      <input
+        type="number"
+        class="form-control"
+        name="department_id"
+        [(ngModel)]="department.department_id"
+        #department_id="ngModel"
+        placeholder="nhập tên phòng ban"
+        required
+        disabled
+      />
+    </div>
+    <div
+      *ngIf="
+        department_id.invalid && (department_id.dirty || department_id.touched)
+      "
+    >
+      <p *ngIf="department_id.errors?.['required']" class="text-danger">
+        Vui lòng nhập mã phòng ban
+      </p>
+    </div>
+    <div class="mb-2">
       <label for="name" class="form-label">Tên phòng ban</label>
       <input
         type="text"
         class="form-control"
-        name="name"
+        name="departmentName"
         [(ngModel)]="department.departmentName"
-        #name="ngModel"
+        #departmentName="ngModel"
         placeholder="nhập tên phòng ban"
         required
       />
     </div>
-    <div *ngIf="name.invalid && (name.dirty || name.touched)">
-      <p *ngIf="name.errors?.['required']" class="text-danger">
+    <div
+      *ngIf="
+        departmentName.invalid &&
+        (departmentName.dirty || departmentName.touched)
+      "
+    >
+      <p *ngIf="departmentName.errors?.['required']" class="text-danger">
         Vui lòng nhập tên phòng ban
       </p>
     </div>
     <div>
-      <button class="btn btn-primary" type="submit">Thêm mới</button>
+      <button class="btn btn-primary" type="submit">Cập nhật</button>
       <a routerLink="/department" class="btn btn-outline-secondary ms-2"
         >Quay lại</a
       >
