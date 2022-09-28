@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { department } from 'src/app/models/department';
 import { employee } from 'src/app/models/employee';
+import { role } from 'src/app/models/role';
 import { DepartmentService } from 'src/app/services/department.service';
 import { EmployeeService } from 'src/app/services/employee.service';
+import { RoleService } from 'src/app/services/role.service';
 
 @Component({
   selector: 'app-employee-edit',
@@ -21,17 +23,20 @@ export class EmployeeEditComponent implements OnInit {
     specialize: ''
   }
   departments: department[] = [];
+  roles: role[] = [];
 
   constructor(
     private departmentService: DepartmentService,
     private employeeService: EmployeeService,
     private activatedRoute: ActivatedRoute,
+    private roleService: RoleService,
     private router: Router
   ) { }
 
   ngOnInit(): void {
     this.getDepartments();
     this.getEmployeeById();
+    this.getRoles();
   }
 
   getDepartments() {
@@ -39,6 +44,13 @@ export class EmployeeEditComponent implements OnInit {
       console.log(data);
 
       this.departments = data;
+    })
+  }
+
+  getRoles() {
+    this.roleService.getRoles().subscribe((data) => {
+      console.log(data)
+      this.roles = data;
     })
   }
 

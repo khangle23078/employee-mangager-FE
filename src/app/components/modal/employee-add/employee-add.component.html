@@ -142,10 +142,9 @@
               class="form-select"
             >
               <option value="" selected>Chọn chức vụ</option>
-              <option value="1">Giám đốc</option>
-              <option value="2">Trưởng phòng</option>
-              <option value="3">Nhân viên nhân sự</option>
-              <option value="4">Nhân viên</option>
+              <option *ngFor="let role of roles" [ngValue]="role.roleId">
+                {{ role.roleName }}
+              </option>
             </select>
             <div *ngIf="roleId.invalid && (roleId.dirty || roleId.touched)">
               <p *ngIf="roleId.errors?.['required']" class="text-danger">

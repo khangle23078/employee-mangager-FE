@@ -24,4 +24,13 @@ export class EmployeeListComponent implements OnInit {
     })
   }
 
+  removeById(id: any) {
+    if (window.confirm("bạn có muốn xóa không")) {
+      this.employeeService.deleteEmployeeById(id).subscribe((data) => {
+        alert('Xóa thành công');
+        console.log(data);
+        window.location.reload();
+      })
+    }
+  }
 }
