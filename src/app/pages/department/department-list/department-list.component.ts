@@ -25,7 +25,6 @@ export class DepartmentListComponent implements OnInit {
   }
 
   onRemove(id: any): void {
-    const existsDepartment = this.departments.find((item) => item.department_id === id);
     if (window.confirm('bạn có muốn xóa hay không ?')) {
       this.departmentService.deleteDepartmentById(id).subscribe((data) => {
         alert("Xóa thành công")

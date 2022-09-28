@@ -12,68 +12,6 @@ a {
   color: #fff;
 }
 
-/* Sidebar */
-
-.sidebar {
-  background-color: #4e73df;
-  background-image: linear-gradient(180deg, #4e73df 10%, #224abe 100%);
-  background-size: cover;
-  list-style-type: none;
-  width: 14rem;
-  min-height: 100vh;
-
-  &-brand {
-    color: #fff;
-    height: 4.375rem;
-    font-size: 1rem;
-    font-weight: 800;
-    padding: 1.5rem 1rem;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 0.05rem;
-    margin-left: 15px;
-    &-icon {
-      transform: rotate(-15deg);
-      i {
-        font-size: 2rem;
-      }
-    }
-
-    &-text {
-      display: inline;
-      font-size: 1rem;
-      font-weight: 800;
-    }
-  }
-
-  a {
-    :active {
-      color: #fff;
-    }
-  }
-}
-
-.sidebar-item {
-  padding: 1rem;
-  margin: 0 1rem 1rem;
-}
-
-.sidebar-link {
-  i {
-    font-size: 0.85rem;
-    margin-right: 0.5rem;
-  }
-
-  span {
-    font-size: 0.85rem;
-  }
-}
-
-.sidebar-divider {
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-}
-
 .main {
   flex: 1 0 auto;
 }

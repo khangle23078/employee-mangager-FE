@@ -1,0 +1,62 @@
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="roleAdd"
+  tabindex="-1"
+  aria-labelledby="roleAdd"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="roleAdd">Thêm vai trò</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form #formAdd="ngForm" (submit)="onSubmit(formAdd.value)">
+          {{ role | json }}
+          <div class="mb-2">
+            <label for="roleId" class="form-label">Mã vai trò</label>
+            <input
+              type="number"
+              class="form-control"
+              name="roleId"
+              [(ngModel)]="role.roleId"
+              #roleId="ngModel"
+              placeholder="nhập tên phòng ban"
+              required
+            />
+          </div>
+          <div *ngIf="roleId.invalid && (roleId.dirty || roleId.touched)">
+            <p *ngIf="roleId.errors?.['required']" class="text-danger">
+              Vui lòng nhập mã vai trò
+            </p>
+          </div>
+          <div class="mb-2">
+            <label for="name" class="form-label">Tên vai trò</label>
+            <input
+              type="text"
+              class="form-control"
+              name="roleName"
+              [(ngModel)]="role.roleName"
+              #roleName="ngModel"
+              placeholder="nhập tên phòng ban"
+              required
+            />
+          </div>
+          <div *ngIf="roleName.invalid && (roleName.dirty || roleName.touched)">
+            <p *ngIf="roleName.errors?.['required']" class="text-danger">
+              Vui lòng nhập tên vai trò
+            </p>
+          </div>
+          <button class="btn btn-primary" type="submit">Thêm mới</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

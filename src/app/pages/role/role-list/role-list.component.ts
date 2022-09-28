@@ -23,6 +23,11 @@ export class RoleListComponent implements OnInit {
   }
 
   onRemove(id: number) {
-    
+    if (window.confirm('bạn có muốn xóa không')) {
+      this.roleServie.deleteRole(id).subscribe((data) => {
+        alert('xóa thành công');
+        window.location.reload();
+      })
+    }
   }
 }
