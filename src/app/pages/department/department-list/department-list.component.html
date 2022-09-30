@@ -38,13 +38,14 @@
                 <a
                   [routerLink]="['/department/edit', department.department_id]"
                   class="btn btn-outline-secondary"
-                  >Sửa</a
                 >
+                  <i class="fa-sharp fa-solid fa-pen-to-square"></i>
+                </a>
                 <button
                   class="btn btn-danger"
                   (click)="onRemove(department.department_id)"
                 >
-                  Xóa
+                  <i class="fa-solid fa-trash"></i>
                 </button>
                 <!-- Modal Delete-->
                 <!-- <div

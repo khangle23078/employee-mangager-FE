@@ -6,7 +6,7 @@
       data-bs-toggle="modal"
       data-bs-target="#employeeAdd"
     >
-      <i class="fa-regular fa-plus"></i>
+      <i class="fa-solid fa-user-plus"></i>
       Thêm mới
     </button>
   </div>
@@ -25,6 +25,7 @@
         >
           <thead>
             <tr>
+              <th></th>
               <th>STT</th>
               <th>Họ và tên</th>
               <th>Ngày sinh</th>
@@ -38,6 +39,14 @@
           </thead>
           <tbody>
             <tr *ngFor="let employee of employees; index as index">
+              <td>
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="flexCheckDefault"
+                />
+              </td>
               <td>{{ index + 1 }}</td>
               <td>{{ employee.fullname }}</td>
               <td>{{ employee.birthday | date: "mediumDate" }}</td>
@@ -50,13 +59,14 @@
                 <a
                   [routerLink]="['/employee/edit', employee.id]"
                   class="btn btn-outline-secondary"
-                  >Sửa</a
                 >
+                  <i class="fa-solid fa-user-pen"></i>
+                </a>
                 <button
                   class="btn btn-danger"
                   (click)="removeById(employee.id)"
                 >
-                  Xóa
+                  <i class="fa-solid fa-trash"></i>
                 </button>
               </td>
             </tr>

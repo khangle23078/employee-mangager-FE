@@ -38,10 +38,11 @@
                 <a
                   [routerLink]="['/department/edit', role.roleId]"
                   class="btn btn-outline-secondary"
-                  >Sửa</a
                 >
+                  <i class="fa-sharp fa-solid fa-pen-to-square"></i>
+                </a>
                 <button class="btn btn-danger" (click)="onRemove(role.roleId)">
-                  Xóa
+                  <i class="fa-solid fa-trash"></i>
                 </button>
               </td>
             </tr>
