@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
   }
 
   getUserName() {
-    const data = JSON.parse(localStorage.getItem('user') as string).username
+    const data = JSON.parse(sessionStorage.getItem('user') as string).username
     this.userName = data;
     return data;
   }

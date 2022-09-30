@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
   onSubmit(data: admin) {
     this.authService.login(data).subscribe((data) => {
       console.log(data);
-      localStorage.setItem('user', JSON.stringify(data))
+      sessionStorage.setItem('user', JSON.stringify(data))
       this.router.navigateByUrl('/department');
     })
   }

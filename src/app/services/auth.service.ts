@@ -15,11 +15,11 @@ export class AuthService {
   }
 
   logout() {
-    return localStorage.removeItem('user');
+    return sessionStorage.removeItem('user');
   }
 
   getToken() {
-    const token = JSON.parse(localStorage.getItem('user') as string).token;
+    const token = JSON.parse(sessionStorage.getItem('user') as string).token;
     return token;
   }
 
