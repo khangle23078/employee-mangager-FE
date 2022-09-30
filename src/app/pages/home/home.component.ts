@@ -8,21 +8,12 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  userName?: string = '';
-  constructor(private router: Router, private authService: AuthService) { }
+
+  constructor() { }
 
   ngOnInit(): void {
-    this.getUserName();
+
   }
 
-  getUserName() {
-    const data = JSON.parse(sessionStorage.getItem('user') as string).username
-    this.userName = data;
-    return data;
-  }
 
-  logout() {
-    this.authService.logout();
-    this.router.navigateByUrl('/login')
-  }
 }

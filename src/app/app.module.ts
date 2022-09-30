@@ -16,6 +16,7 @@ import { EmployeeEditComponent } from './pages/employee/employee-edit/employee-e
 import { RoleListComponent } from './pages/role/role-list/role-list.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { RoleAddComponent } from './components/modal/role-add/role-add.component';
+import { TopbarComponent } from './components/topbar/topbar.component';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { RoleAddComponent } from './components/modal/role-add/role-add.component
     RoleListComponent,
     SidebarComponent,
     RoleAddComponent,
+    TopbarComponent,
   ],
   imports: [
     BrowserModule,

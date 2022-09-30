@@ -1,31 +1,7 @@
 <div id="wrapper">
   <app-sidebar></app-sidebar>
   <div class="main">
-    <div class="topbar d-flex align-items-center justify-content-between mb-4">
-      <form #searchForm="ngForm" class="topbar-search">
-        <div class="input-group">
-          <input
-            type="text"
-            name="searchValue"
-            class="form-control search-input"
-            placeholder="tìm kiếm"
-          />
-          <button class="btn btn-primary">
-            <i class="fas fa-search fa-sm"></i>
-          </button>
-        </div>
-      </form>
-
-      <div *ngIf="userName">
-        xin chào {{ userName }}
-        <button class="btn btn-outline-secondary mx-2" (click)="logout()">
-          Đăng xuất
-        </button>
-      </div>
-      <a class="btn btn-primary" routerLink="login" [hidden]="userName"
-        >Đăng nhập</a
-      >
-    </div>
+    <app-topbar></app-topbar>
     <main class="container-fluid">
       <router-outlet></router-outlet>
     </main>
