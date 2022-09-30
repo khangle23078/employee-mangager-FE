@@ -18,6 +18,8 @@ export class TopbarComponent implements OnInit {
   getUserName() {
     const data = JSON.parse(sessionStorage.getItem('user') as string).username
     this.userName = data;
+    console.log(this.userName);
+
     return data;
   }
 

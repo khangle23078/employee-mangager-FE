@@ -15,8 +15,36 @@
     <div class="card-header py-3">
       <h6 class="m-0 font-weight-bold text-gray-800">Danh sách nhân viên</h6>
     </div>
+
     <div class="card-body">
       <div class="table-responsive">
+        <div class="d-flex align-items-center gap-2">
+          <select
+            name="itemPerPage"
+            id=""
+            class="form-select"
+            style="width: 200px"
+          >
+            <option selected>Số phần tử mỗi trang</option>
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="30">30</option>
+            <option value="40">40</option>
+          </select>
+
+          <select
+            name="degree"
+            class="form-select my-2"
+            aria-label="Default select example"
+            style="width: 150px"
+          >
+            <option selected>Lọc theo</option>
+            <option value="1">Bằng cấp</option>
+            <option value="2">Chuyên môn</option>
+            <option value="3">Phòng ban</option>
+          </select>
+        </div>
+
         <table
           class="table table-bordered"
           id="dataTable"
@@ -25,7 +53,14 @@
         >
           <thead>
             <tr>
-              <th></th>
+              <th>
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="flexCheckDefault"
+                />
+              </th>
               <th>STT</th>
               <th>Họ và tên</th>
               <th>Ngày sinh</th>
@@ -72,6 +107,23 @@
             </tr>
           </tbody>
         </table>
+        <div class="d-flex justify-content-end align-items-center">
+          <nav aria-label="...">
+            <ul class="pagination">
+              <li class="page-item disabled">
+                <span class="page-link">Previous</span>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">1</a></li>
+              <li class="page-item active" aria-current="page">
+                <span class="page-link">2</span>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#">Next</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
       </div>
     </div>
   </div>

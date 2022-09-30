@@ -18,7 +18,7 @@
         ></button>
       </div>
       <div class="modal-body">
-        <form #formAdd="ngForm" (submit)="onSubmit(formAdd.value)">
+        <form #employeeAdd="ngForm" (submit)="onSubmit(employeeAdd.value)">
           <div class="mb-3">
             <label for="fullname" class="form-label">Họ và tên</label>
             <input
@@ -201,7 +201,13 @@
               </p>
             </div>
           </div>
-          <button type="submit" class="btn btn-primary">Thêm mới</button>
+          <button
+            type="submit"
+            disabled="employeeAdd.invalid"
+            class="btn btn-primary"
+          >
+            Thêm mới
+          </button>
         </form>
       </div>
     </div>

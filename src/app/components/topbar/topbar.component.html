@@ -13,13 +13,31 @@
     </div>
   </form>
 
-  <div *ngIf="userName">
-    xin chào {{ userName }}
-    <button class="btn btn-outline-secondary mx-2" (click)="logout()">
-      Đăng xuất
+  <!--dropdown -->
+
+  <div class="dropdown" *ngIf="userName">
+    <button
+      class="btn dropdown-toggle"
+      type="button"
+      id="dropdownMenuButton1"
+      data-bs-toggle="dropdown"
+      aria-expanded="false"
+    >
+      xin chào {{ userName }}
     </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+      <li><a class="dropdown-item" href="#">Action</a></li>
+      <li><a class="dropdown-item" href="#">Chỉnh sửa thông tin</a></li>
+      <li>
+        <a class="dropdown-item" href="#" (click)="logout()">
+          <i class="fa-solid fa-right-from-bracket"></i>
+          Đăng xuất
+        </a>
+      </li>
+    </ul>
   </div>
   <a class="btn btn-primary" routerLink="login" [hidden]="userName"
     >Đăng nhập</a
   >
+  <!-- end of dropdown -->
 </div>

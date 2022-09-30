@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { department } from 'src/app/models/department';
 import { DepartmentService } from 'src/app/services/department.service';
@@ -13,7 +13,6 @@ export class DeparmentAddComponent implements OnInit {
     department_id: 0,
     departmentName: ''
   }
-
   constructor(private departmentService: DepartmentService, private router: Router) { }
 
   ngOnInit(): void {

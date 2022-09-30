@@ -11,8 +11,8 @@ export class RoleAddComponent implements OnInit {
   role: role = {
     roleId: 0,
     roleName: ''
-  }
-
+  } 
+  
   constructor(private roleService: RoleService) { }
 
   ngOnInit(): void {
