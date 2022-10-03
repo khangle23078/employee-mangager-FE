@@ -136,7 +136,7 @@
             <select
               name="roleId"
               id="roleId"
-              [(ngModel)]="employee.roleId"
+              [(ngModel)]="employee.role.roleId"
               #roleId="ngModel"
               required
               class="form-select"
@@ -178,7 +178,7 @@
             <select
               class="form-select"
               name="department"
-              [(ngModel)]="employee.department_id"
+              [(ngModel)]="employee.department.department_id"
               #department_id="ngModel"
               required
             >

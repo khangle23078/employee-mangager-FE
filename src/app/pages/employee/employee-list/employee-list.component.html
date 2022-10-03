@@ -86,10 +86,16 @@
               <td>{{ employee.fullname }}</td>
               <td>{{ employee.birthday | date: "mediumDate" }}</td>
               <td>{{ employee.email }}</td>
-              <td>{{ employee.roleId }}</td>
+              <td>{{ employee.role.roleName }}</td>
               <td>{{ employee.degree }}</td>
               <td>{{ employee.specialize }}</td>
-              <td>{{ employee.department_id }}</td>
+              <td>
+                {{
+                  employee.department === null
+                    ? "Trống"
+                    : employee.department.departmentName
+                }}
+              </td>
               <td class="d-flex justify-content-around">
                 <a
                   [routerLink]="['/employee/edit', employee.id]"

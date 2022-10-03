@@ -1,3 +1,6 @@
+import { department } from "./department";
+import { role } from "./role";
+
 export interface employee {
    id?: number,
    username?: string,
@@ -5,8 +8,8 @@ export interface employee {
    birthday: string,
    email: string,
    pass?: string,
-   roleId: number,
-   department_id: number,
+   role: role,
+   department: department,
    degree: string,
    specialize: string
 }

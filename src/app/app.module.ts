@@ -17,6 +17,7 @@ import { RoleListComponent } from './pages/role/role-list/role-list.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { RoleAddComponent } from './components/modal/role-add/role-add.component';
 import { TopbarComponent } from './components/topbar/topbar.component';
+import { ModalCustomComponent } from './components/modal-custom/modal-custom.component';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { TopbarComponent } from './components/topbar/topbar.component';
     SidebarComponent,
     RoleAddComponent,
     TopbarComponent,
+    ModalCustomComponent,
   ],
   imports: [
     BrowserModule,

@@ -16,8 +16,14 @@ export class EmployeeAddComponent implements OnInit {
     fullname: '',
     birthday: '',
     email: '',
-    roleId: 0,
-    department_id: 0,
+    role: {
+      roleId: 0,
+      roleName: ''
+    },
+    department: {
+      department_id: 0,
+      departmentName: ''
+    },
     degree: '',
     specialize: ''
   }
