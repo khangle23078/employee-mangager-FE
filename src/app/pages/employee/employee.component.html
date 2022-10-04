@@ -43,6 +43,17 @@
             <option value="2">Chuyên môn</option>
             <option value="3">Phòng ban</option>
           </select>
+
+          <form>
+            <input
+              type="text"
+              class="form-control"
+              name="employeeName"
+              [(ngModel)]="employeeName"
+              placeholder="tìm kiếm"
+              (keyup)="searchByName(employeeName)"
+            />
+          </form>
         </div>
 
         <table
@@ -73,6 +84,9 @@
             </tr>
           </thead>
           <tbody>
+            <p class="text-danger" *ngIf="employees.length === 0">
+              Không tìm thấy kết quả
+            </p>
             <tr *ngFor="let employee of employees; index as index">
               <td>
                 <input

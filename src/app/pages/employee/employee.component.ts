@@ -13,6 +13,7 @@ import { RoleService } from 'src/app/services/role.service';
 })
 export class EmployeeComponent implements OnInit {
   employees: employee[] = []
+  employeeName: string = ''
   employeeEdit: employee = {
     fullname: '',
     email: '',
@@ -84,6 +85,24 @@ export class EmployeeComponent implements OnInit {
         console.log(data);
         window.location.reload();
       })
+    }
+  }
+
+  searchByName(value: string) {
+    const result = this.employees.filter((employee) => {
+      return (
+        employee.fullname.toLowerCase().includes(value.toLowerCase()) ||
+        employee.email.toLowerCase().includes(value.toLowerCase())
+      )
+    })
+    this.employees = result;
+
+    if (value.length <= 0) {
+      this.getAll()
+    }
+
+    if (result.length === 0) {
+      console.log('không tìm thấy kết quả');
     }
   }
 }
