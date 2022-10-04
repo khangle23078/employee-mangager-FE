@@ -4,11 +4,11 @@ import { department } from 'src/app/models/department';
 import { DepartmentService } from 'src/app/services/department.service';
 
 @Component({
-  selector: 'app-department-list',
-  templateUrl: './department-list.component.html',
-  styleUrls: ['./department-list.component.scss']
+  selector: 'app-department',
+  templateUrl: './department.component.html',
+  styleUrls: ['./department.component.scss']
 })
-export class DepartmentListComponent implements OnInit {
+export class DepartmentComponent implements OnInit {
   departments: department[] = [];
   department: department = {
     department_id: 0,
@@ -51,5 +51,4 @@ export class DepartmentListComponent implements OnInit {
       })
     }
   }
-
 }

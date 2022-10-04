@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { employee } from 'src/app/models/employee';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -27,4 +28,6 @@ export class TopbarComponent implements OnInit {
     this.authService.logout();
     this.router.navigateByUrl('/login')
   }
+
+
 }
