@@ -1,19 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { map, pipe } from 'rxjs';
 import { department } from 'src/app/models/department';
 import { employee } from 'src/app/models/employee';
 import { role } from 'src/app/models/role';
-import { AuthService } from 'src/app/services/auth.service';
 import { DepartmentService } from 'src/app/services/department.service';
 import { EmployeeService } from 'src/app/services/employee.service';
 import { RoleService } from 'src/app/services/role.service';
 
 @Component({
-  selector: 'app-employee-list',
-  templateUrl: './employee-list.component.html',
-  styleUrls: ['./employee-list.component.scss']
+  selector: 'app-employee',
+  templateUrl: './employee.component.html',
+  styleUrls: ['./employee.component.scss']
 })
-export class EmployeeListComponent implements OnInit {
+export class EmployeeComponent implements OnInit {
   employees: employee[] = []
   employeeEdit: employee = {
     fullname: '',
