@@ -19,7 +19,7 @@ export class EmployeeService {
 
   constructor(private http: HttpClient, private authService: AuthService) { }
 
-  getEmployees(): Observable<employee[]> {
+  getEmployees(limit: number): Observable<employee[]> {
     return this.http.get<employee[]>(`${this.apiUrl}/employee/getAll`, this.options);
   }
 
@@ -31,7 +31,7 @@ export class EmployeeService {
     return this.http.post<employee>(`${this.apiUrl}/employee/insert`, data, this.options)
   }
 
-  updateEmployeeById(data: employee, id: number): Observable<employee> {
+  updateEmployeeById(data: employee, id: any): Observable<employee> {
     return this.http.post<employee>(`${this.apiUrl}/employee/update?id=${id}`, data, this.options)
   }
 

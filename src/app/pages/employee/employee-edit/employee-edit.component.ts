@@ -68,9 +68,9 @@ export class EmployeeEditComponent implements OnInit {
     })
   }
 
-  onSubmit(data: employee) {
-    const id = this.activatedRoute.snapshot.paramMap.get('id');
-    this.employeeService.updateEmployeeById(data, Number(id)).subscribe((data) => {
+  onSubmit(data: employee, id: any) {
+    // const id = this.activatedRoute.snapshot.paramMap.get('id');
+    this.employeeService.updateEmployeeById(data, id).subscribe((data) => {
       alert("cập nhập thành công")
       this.router.navigateByUrl('/employee')
     })

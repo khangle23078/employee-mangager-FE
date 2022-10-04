@@ -9,7 +9,11 @@ import { DepartmentService } from 'src/app/services/department.service';
   styleUrls: ['./department-list.component.scss']
 })
 export class DepartmentListComponent implements OnInit {
-  departments: department[] = []
+  departments: department[] = [];
+  department: department = {
+    department_id: 0,
+    departmentName: '',
+  }
 
   constructor(private departmentService: DepartmentService, private router: Router) { }
 
@@ -24,12 +28,26 @@ export class DepartmentListComponent implements OnInit {
     })
   }
 
+  getById(id: any) {
+    this.departmentService.getDepartmentById(id).subscribe((data) => {
+      console.log(data);
+      this.department = data;
+    })
+  }
+
+  onEdit(value: department, id: any) {
+    this.departmentService.updateDepartmentById(value, id).subscribe((data) => {
+      console.log(data);
+      this.getAll();
+    })
+  }
+
   onRemove(id: any): void {
     if (window.confirm('bạn có muốn xóa hay không ?')) {
       this.departmentService.deleteDepartmentById(id).subscribe((data) => {
         alert("Xóa thành công")
         console.log(data);
-        window.location.reload();
+        this.getAll();
       })
     }
   }

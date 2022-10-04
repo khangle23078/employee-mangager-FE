@@ -32,68 +32,115 @@
           </thead>
           <tbody>
             <tr *ngFor="let department of departments; index as index">
-              <td>{{ department.department_id }}</td>
+              <td>{{ index + 1 }}</td>
               <td>{{ department.departmentName }}</td>
               <td class="d-flex gap-2">
-                <a
-                  [routerLink]="['/department/edit', department.department_id]"
+                <button
+                  type="button"
+                  data-bs-toggle="modal"
+                  data-bs-target="#departmentEdit"
                   class="btn btn-outline-secondary"
+                  (click)="getById(department.department_id)"
                 >
                   <i class="fa-sharp fa-solid fa-pen-to-square"></i>
-                </a>
+                </button>
                 <button
                   class="btn btn-danger"
                   (click)="onRemove(department.department_id)"
                 >
                   <i class="fa-solid fa-trash"></i>
                 </button>
-                <!-- Modal Delete-->
-                <!-- <div
-                   data-bs-toggle="modal"
-                  data-bs-target="#departmentDelete"
-                  class="modal fade"
-                  id="departmentDelete"
-                  tabindex="-1"
-                  aria-labelledby="departmentDelete"
-                  aria-hidden="true"
-                >
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">
-                          Xóa phòng ban
-                        </h5>
-                        <button
-                          type="button"
-                          class="btn-close"
-                          data-bs-dismiss="modal"
-                          aria-label="Close"
-                        ></button>
-                      </div>
-                      <div class="modal-body">Bạn có muốn xóa hay không?</div>
-                      <div class="modal-footer">
-                        <button
-                          type="button"
-                          class="btn btn-secondary"
-                          data-bs-dismiss="modal"
-                        >
-                          Hủy
-                        </button>
-                        <button
-                          type="button"
-                          class="btn btn-primary"
-                          (click)="onRemove(department.department_id)"
-                        >
-                          Xóa
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div> -->
               </td>
             </tr>
           </tbody>
         </table>
+      </div>
+    </div>
+  </div>
+  <!-- Edit Modal -->
+  <div
+    class="modal fade"
+    id="departmentEdit"
+    tabindex="-1"
+    aria-labelledby="departmentEdit"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="departmentEdit">Sửa phòng ban</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <form
+            #formAdd="ngForm"
+            (submit)="onEdit(formAdd.value, department.department_id)"
+            *ngIf="department"
+          >
+            <div class="mb-2">
+              <label for="department_id" class="form-label">Mã phòng ban</label>
+              <input
+                type="number"
+                class="form-control"
+                name="department_id"
+                disabled
+                [value]="department.department_id"
+                [(ngModel)]="department.department_id"
+                #department_id="ngModel"
+                placeholder="nhập tên phòng ban"
+                required
+              />
+            </div>
+            <div
+              *ngIf="
+                department_id.invalid &&
+                (department_id.dirty || department_id.touched)
+              "
+            >
+              <p *ngIf="department_id.errors?.['required']" class="text-danger">
+                Vui lòng nhập mã phòng ban
+              </p>
+            </div>
+            <div class="mb-2">
+              <label for="name" class="form-label">Tên phòng ban</label>
+              <input
+                type="text"
+                class="form-control"
+                name="departmentName"
+                [value]="department.departmentName"
+                [(ngModel)]="department.departmentName"
+                #departmentName="ngModel"
+                placeholder="nhập tên phòng ban"
+                required
+              />
+            </div>
+            <div
+              *ngIf="
+                departmentName.invalid &&
+                (departmentName.dirty || departmentName.touched)
+              "
+            >
+              <p
+                *ngIf="departmentName.errors?.['required']"
+                class="text-danger"
+              >
+                Vui lòng nhập tên phòng ban
+              </p>
+            </div>
+            <button
+              class="btn btn-primary"
+              data-bs-dismiss="modal"
+              type="submit"
+            >
+              Lưu
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   </div>

@@ -35,12 +35,13 @@
               <td>{{ role.roleId }}</td>
               <td>{{ role.roleName }}</td>
               <td class="d-flex gap-2">
-                <a
-                  [routerLink]="['/department/edit', role.roleId]"
+                <button
+                  data-bs-toggle="modal"
+                  data-bs-target="#roleEdit"
                   class="btn btn-outline-secondary"
                 >
                   <i class="fa-sharp fa-solid fa-pen-to-square"></i>
-                </a>
+                </button>
                 <button class="btn btn-danger" (click)="onRemove(role.roleId)">
                   <i class="fa-solid fa-trash"></i>
                 </button>
