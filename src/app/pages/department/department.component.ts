@@ -21,7 +21,7 @@ export class DepartmentComponent implements OnInit {
     this.getAll();
   }
 
-  private getAll() {
+  public getAll() {
     this.departmentService.getDepartments().subscribe((data) => {
       console.log(data);
       this.departments = data;

@@ -12,18 +12,14 @@ import { RoleService } from 'src/app/services/role.service';
   styleUrls: ['./employee-add.component.scss']
 })
 export class EmployeeAddComponent implements OnInit {
-  employee: employee = {
+  employee: any = {
     fullname: '',
     birthday: '',
+    username: '',
+    pass: '',
     email: '',
-    role: {
-      roleId: 0,
-      roleName: ''
-    },
-    department: {
-      department_id: 0,
-      departmentName: ''
-    },
+    roleId: 0,
+    department_id: 0,
     degree: '',
     specialize: ''
   }
@@ -32,7 +28,7 @@ export class EmployeeAddComponent implements OnInit {
   constructor(
     private departmentService: DepartmentService,
     private employeeService: EmployeeService,
-    private roleSerivice: RoleService
+    private roleSerivice: RoleService,
   ) { }
 
   ngOnInit(): void {
@@ -57,8 +53,7 @@ export class EmployeeAddComponent implements OnInit {
 
   onSubmit(data: employee) {
     this.employeeService.createEmployee(data).subscribe((data) => {
-      alert("thêm thành công")
-      window.location.reload();
+      this.employeeService.getEmployees(10)
     })
   }
 }

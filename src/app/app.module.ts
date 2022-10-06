@@ -13,9 +13,10 @@ import { RoleListComponent } from './pages/role/role-list/role-list.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { RoleAddComponent } from './components/modal/role-add/role-add.component';
 import { TopbarComponent } from './components/topbar/topbar.component';
-import { ModalCustomComponent } from './components/modal-custom/modal-custom.component';
 import { DepartmentComponent } from './pages/department/department.component';
 import { EmployeeComponent } from './pages/employee/employee.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { CardComponent } from './components/card/card.component';
 
 
 @NgModule({
@@ -29,9 +30,10 @@ import { EmployeeComponent } from './pages/employee/employee.component';
     SidebarComponent,
     RoleAddComponent,
     TopbarComponent,
-    ModalCustomComponent,
     DepartmentComponent,
     EmployeeComponent,
+    DashboardComponent,
+    CardComponent,
   ],
   imports: [
     BrowserModule,

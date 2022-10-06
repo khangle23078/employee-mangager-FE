@@ -21,27 +21,28 @@
         <div class="d-flex align-items-center gap-2">
           <select
             name="itemPerPage"
-            id=""
+            [(ngModel)]="itemPerPage"
             class="form-select"
             style="width: 200px"
+            (change)="chageItemPerPage(itemPerPage)"
           >
-            <option selected>Số phần tử mỗi trang</option>
-            <option value="10">10</option>
-            <option value="20">20</option>
-            <option value="30">30</option>
-            <option value="40">40</option>
+            <option [ngValue]="null" disabled>Số phần tử mỗi trang</option>
+            <option [ngValue]="2">2</option>
+            <option [ngValue]="4">4</option>
+            <option [ngValue]="6">6</option>
+            <option [ngValue]="8">8</option>
           </select>
-
           <select
-            name="degree"
+            name="sortValue"
+            [(ngModel)]="sortValue"
             class="form-select my-2"
             aria-label="Default select example"
             style="width: 150px"
+            (change)="sortEmployee(sortValue)"
           >
-            <option selected>Lọc theo</option>
-            <option value="1">Bằng cấp</option>
-            <option value="2">Chuyên môn</option>
-            <option value="3">Phòng ban</option>
+            <option value="null" disabled>Sắp sếp theo</option>
+            <option value="birthday">Ngày sinh</option>
+            <option value="dergee">Bằng cấp</option>
           </select>
 
           <form>
@@ -258,7 +259,7 @@
                 required
                 class="form-select"
               >
-                <option value="" selected>Chọn chức vụ</option>
+                <option [ngValue]="null" selected>Chọn chức vụ</option>
                 <option *ngFor="let role of roles" [ngValue]="role.roleName">
                   {{ role.roleName }}
                 </option>
@@ -297,16 +298,12 @@
               <select
                 class="form-select"
                 name="departmentName"
-                [value]="
-                  employeeEdit.department === null
-                    ? 'Trống'
-                    : employeeEdit.department.departmentName
-                "
+                [value]="employeeEdit.department.departmentName"
                 [(ngModel)]="employeeEdit.department.departmentName"
                 #departmentName="ngModel"
                 required
               >
-                <option selected>Chọn phòng ban</option>
+                <option [ngValue]="null" selected>Chọn phòng ban</option>
                 <option
                   *ngFor="let department of departments"
                   [ngValue]="department.departmentName"

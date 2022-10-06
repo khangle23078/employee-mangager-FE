@@ -30,7 +30,8 @@ export class EmployeeComponent implements OnInit {
   }
   departments: department[] = [];
   roles: role[] = [];
-
+  sortValue = '';
+  itemPerPage: number = 0;
   constructor(
     private employeeService: EmployeeService,
     private departmentService: DepartmentService,
@@ -45,22 +46,18 @@ export class EmployeeComponent implements OnInit {
 
   getRoles() {
     this.roleSerivice.getRoles().subscribe((data) => {
-      console.log(data)
       this.roles = data;
     })
   }
 
   getDepartments() {
     this.departmentService.getDepartments().subscribe((data) => {
-      console.log(data);
-
       this.departments = data;
     })
   }
 
   getAll() {
-    this.employeeService.getEmployees(10).subscribe((data) => {
-      console.log(data);
+    this.employeeService.getEmployees(5).subscribe((data) => {
       this.employees = data;
     })
   }
@@ -68,13 +65,11 @@ export class EmployeeComponent implements OnInit {
   getById(id: any) {
     this.employeeService.getEmployeeById(id).subscribe((data) => {
       this.employeeEdit = data;
-      console.log(this.employeeEdit);
     })
   }
 
   onEdit(value: any, id: any) {
     this.employeeService.updateEmployeeById(value, id).subscribe((data) => {
-      console.log(data);
     })
   }
 
@@ -82,10 +77,13 @@ export class EmployeeComponent implements OnInit {
     if (window.confirm("bạn có muốn xóa không")) {
       this.employeeService.deleteEmployeeById(id).subscribe((data) => {
         alert('Xóa thành công');
-        console.log(data);
         window.location.reload();
       })
     }
+  }
+
+  chageItemPerPage(value: number) {
+    this.employees.length = value
   }
 
   searchByName(value: string) {
@@ -103,6 +101,23 @@ export class EmployeeComponent implements OnInit {
 
     if (result.length === 0) {
       console.log('không tìm thấy kết quả');
+    }
+  }
+
+  sortEmployee(type: string) {
+    if (type === 'birthday') {
+      this.employees.sort((a: any, b: any) => {
+        if (a.birthday < b.birthday) return 1
+        return -1
+      })
+
+
+    }
+    if (type === 'dergee') {
+      this.employees.sort((a: any, b: any) => {
+        if (a.dergee < b.dergee) return 1
+        return -1
+      })
     }
   }
 }
