@@ -1,10 +1,30 @@
-<div class="container-fluid">
-  <div>
+<div class="container">
+  <h3 class="py-1">Dashboard</h3>
+  <div class="d-flex justify-content-between">
     <app-card
       color="primary"
       title="Số lượng nhân niên"
       data="15 người"
-      icon="user"
+      icon="fa-solid fa-user"
+    ></app-card>
+    <app-card
+      color="success"
+      title="Số lượng phòng ban"
+      data="7 phòng ban"
+      icon="fa-solid fa-building"
+    ></app-card>
+    <app-card
+      color="warning"
+      title="Đã rồi khỏi công ty"
+      data="2 người"
+      icon="fa-solid fa-person-walking-arrow-right"
+    ></app-card>
+    <app-card
+      color="info"
+      title="Tổng số lương"
+      data="100M"
+      icon="fa-solid fa-money-bill"
     ></app-card>
   </div>
+  <div class="d-flex"></div>
 </div>

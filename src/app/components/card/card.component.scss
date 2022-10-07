@@ -1,0 +1,29 @@
+.border-left {
+  &-primary {
+    border-left: 0.25rem solid #4e73df;
+  }
+
+  &-success {
+    border-left: 0.25rem solid #1cc88a;
+  }
+
+  &-info {
+    border-left: 0.25rem solid #36b9cc;
+  }
+
+  &-warning {
+    border-left: 0.25rem solid #f6c23e;
+  }
+}
+
+.text-xs {
+  font-size: 0.7rem;
+}
+
+.font-weight-bold {
+  font-weight: 700;
+}
+
+.text-gray-800 {
+  color: #5a5c69;
+}

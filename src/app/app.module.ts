@@ -17,6 +17,7 @@ import { DepartmentComponent } from './pages/department/department.component';
 import { EmployeeComponent } from './pages/employee/employee.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { CardComponent } from './components/card/card.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import { CardComponent } from './components/card/card.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    NgxPaginationModule
   ],
   providers: [
 

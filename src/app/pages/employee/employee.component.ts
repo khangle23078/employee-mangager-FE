@@ -5,11 +5,12 @@ import { role } from 'src/app/models/role';
 import { DepartmentService } from 'src/app/services/department.service';
 import { EmployeeService } from 'src/app/services/employee.service';
 import { RoleService } from 'src/app/services/role.service';
+import { PaginationInstance } from 'ngx-pagination';
 
 @Component({
   selector: 'app-employee',
   templateUrl: './employee.component.html',
-  styleUrls: ['./employee.component.scss']
+  styleUrls: ['./employee.component.scss'],
 })
 export class EmployeeComponent implements OnInit {
   employees: employee[] = []
@@ -32,6 +33,14 @@ export class EmployeeComponent implements OnInit {
   roles: role[] = [];
   sortValue = '';
   itemPerPage: number = 0;
+  page: number = 1;
+
+
+  public config: PaginationInstance = {
+    id: 'pagination',
+    itemsPerPage: 3,
+    currentPage: 1
+  } 
   constructor(
     private employeeService: EmployeeService,
     private departmentService: DepartmentService,
@@ -58,6 +67,8 @@ export class EmployeeComponent implements OnInit {
 
   getAll() {
     this.employeeService.getEmployees(5).subscribe((data) => {
+      console.log(data);
+
       this.employees = data;
     })
   }

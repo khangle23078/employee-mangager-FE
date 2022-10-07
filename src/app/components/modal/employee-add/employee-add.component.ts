@@ -35,18 +35,15 @@ export class EmployeeAddComponent implements OnInit {
     this.getDepartments();
     this.getRoles();
   }
-
+  
   getRoles() {
     this.roleSerivice.getRoles().subscribe((data) => {
-      console.log(data)
       this.roles = data;
     })
   }
 
   getDepartments() {
     this.departmentService.getDepartments().subscribe((data) => {
-      console.log(data);
-
       this.departments = data;
     })
   }
