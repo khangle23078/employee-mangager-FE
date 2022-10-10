@@ -5,7 +5,7 @@ import { DepartmentComponent } from './pages/department/department.component';
 import { EmployeeComponent } from './pages/employee/employee.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
-import { RoleListComponent } from './pages/role/role-list/role-list.component';
+import { RoleComponent } from './pages/role/role.component';
 
 const routes: Routes = [
   {
@@ -26,7 +26,7 @@ const routes: Routes = [
         component: EmployeeComponent,
       },
 
-      { path: 'role', component: RoleListComponent }
+      { path: 'role', component: RoleComponent }
     ]
   },
   {

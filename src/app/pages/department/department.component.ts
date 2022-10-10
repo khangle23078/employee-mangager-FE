@@ -35,6 +35,13 @@ export class DepartmentComponent implements OnInit {
     })
   }
 
+  onSubmit(data: department) {
+    this.departmentService.createDepartment(data).subscribe((data) => {
+      this.getAll();
+    })
+
+  }
+
   onEdit(value: department, id: any) {
     this.departmentService.updateDepartmentById(value, id).subscribe((data) => {
       console.log(data);

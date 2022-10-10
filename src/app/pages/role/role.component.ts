@@ -3,12 +3,16 @@ import { role } from 'src/app/models/role';
 import { RoleService } from 'src/app/services/role.service';
 
 @Component({
-  selector: 'app-role-list',
-  templateUrl: './role-list.component.html',
-  styleUrls: ['./role-list.component.scss']
+  selector: 'app-role',
+  templateUrl: './role.component.html',
+  styleUrls: ['./role.component.scss']
 })
-export class RoleListComponent implements OnInit {
+export class RoleComponent implements OnInit {
   roles: role[] = [];
+  role: role = {
+    roleId: 0,
+    roleName: ''
+  }
   constructor(private roleServie: RoleService) { }
 
   ngOnInit(): void {
@@ -22,14 +26,19 @@ export class RoleListComponent implements OnInit {
     })
   }
 
-
+  onSubmit(data: role) {
+    this.roleServie.createRole(data).subscribe((data) => {
+      this.getAll()
+    })
+  }
 
   onRemove(id: number) {
     if (window.confirm('bạn có muốn xóa không')) {
       this.roleServie.deleteRole(id).subscribe((data) => {
-        alert('xóa thành công');
-        window.location.reload();
+        this.getAll();
       })
     }
   }
+
+
 }

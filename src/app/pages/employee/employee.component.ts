@@ -14,7 +14,17 @@ import { PaginationInstance } from 'ngx-pagination';
 })
 export class EmployeeComponent implements OnInit {
   employees: employee[] = []
-  employeeName: string = ''
+  employee: any = {
+    fullname: '',
+    birthday: '',
+    username: '',
+    pass: '',
+    email: '',
+    roleId: 0,
+    department_id: 0,
+    degree: '',
+    specialize: ''
+  }
   employeeEdit: any = {
     fullname: '',
     email: '',
@@ -33,15 +43,11 @@ export class EmployeeComponent implements OnInit {
   departments: department[] = [];
   roles: role[] = [];
   sortValue = '';
-  itemPerPage: number = 0;
+  itemPerPage: number = 5;
   page: number = 1;
+  employeeName: string = ''
 
 
-  public config: PaginationInstance = {
-    id: 'pagination',
-    itemsPerPage: 3,
-    currentPage: 1
-  }
   constructor(
     private employeeService: EmployeeService,
     private departmentService: DepartmentService,
@@ -81,6 +87,12 @@ export class EmployeeComponent implements OnInit {
     })
   }
 
+  onSubmit(data: employee) {
+    this.employeeService.createEmployee(data).subscribe((data) => {
+      this.getAll()
+    })
+  }
+
   onEdit(value: any, id: any) {
     this.employeeService.updateEmployeeById(value, id).subscribe((data) => {
       this.getAll()
@@ -97,7 +109,7 @@ export class EmployeeComponent implements OnInit {
   }
 
   chageItemPerPage(value: number) {
-    this.employees.length = value
+    return this.itemPerPage = value;
   }
 
   searchByName(value: string) {
@@ -124,14 +136,14 @@ export class EmployeeComponent implements OnInit {
         if (a.birthday < b.birthday) return 1
         return -1
       })
-
-
     }
+
     if (type === 'dergee') {
       this.employees.sort((a: any, b: any) => {
         if (a.dergee < b.dergee) return 1
         return -1
       })
     }
+
   }
 }

@@ -10,7 +10,87 @@
       Thêm mới
     </button>
   </div>
-  <app-deparment-add></app-deparment-add>
+  <!-- Department-add -->
+  <div
+    class="modal fade"
+    id="departmentAdd"
+    tabindex="-1"
+    aria-labelledby="departmentAdd"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Thêm phòng ban</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <form #formAdd="ngForm" (submit)="onSubmit(formAdd.value)">
+            {{ department | json }}
+            <div class="mb-2">
+              <label for="department_id" class="form-label">Mã phòng ban</label>
+              <input
+                type="number"
+                class="form-control"
+                name="department_id"
+                [(ngModel)]="department.department_id"
+                #department_id="ngModel"
+                placeholder="nhập tên phòng ban"
+                required
+              />
+            </div>
+            <div
+              *ngIf="
+                department_id.invalid &&
+                (department_id.dirty || department_id.touched)
+              "
+            >
+              <p *ngIf="department_id.errors?.['required']" class="text-danger">
+                Vui lòng nhập mã phòng ban
+              </p>
+            </div>
+            <div class="mb-2">
+              <label for="name" class="form-label">Tên phòng ban</label>
+              <input
+                type="text"
+                class="form-control"
+                name="departmentName"
+                [(ngModel)]="department.departmentName"
+                #departmentName="ngModel"
+                placeholder="nhập tên phòng ban"
+                required
+              />
+            </div>
+            <div
+              *ngIf="
+                departmentName.invalid &&
+                (departmentName.dirty || departmentName.touched)
+              "
+            >
+              <p
+                *ngIf="departmentName.errors?.['required']"
+                class="text-danger"
+              >
+                Vui lòng nhập tên phòng ban
+              </p>
+            </div>
+            <button
+              class="btn btn-primary"
+              data-bs-dismiss="modal"
+              type="submit"
+            >
+              Thêm mới
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="card shadow mb-4 mt-4">
     <div class="card-header py-3">
       <h6 class="m-0 font-weight-bold text-gray-800">Danh sách phòng ban</h6>
