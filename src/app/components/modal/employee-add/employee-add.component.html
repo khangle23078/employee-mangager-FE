@@ -18,6 +18,7 @@
         ></button>
       </div>
       <div class="modal-body">
+        {{ employeeAdd.value | json }}
         <form #employeeAdd="ngForm" (submit)="onSubmit(employeeAdd.value)">
           <div class="mb-3">
             <label for="fullname" class="form-label">Họ và tên</label>
@@ -173,12 +174,12 @@
             <label for="specialize" class="form-label">Phòng ban</label>
             <select
               class="form-select"
-              name="department"
+              name="department_id"
               [(ngModel)]="employee.department_id"
               #department_id="ngModel"
               required
             >
-              <option [ngValue]="null" selected>Chọn phòng ban</option>
+              <option selected>Chọn phòng ban</option>
               <option
                 *ngFor="let department of departments"
                 [ngValue]="department.department_id"

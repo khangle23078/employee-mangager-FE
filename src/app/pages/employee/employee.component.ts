@@ -15,7 +15,7 @@ import { PaginationInstance } from 'ngx-pagination';
 export class EmployeeComponent implements OnInit {
   employees: employee[] = []
   employeeName: string = ''
-  employeeEdit: employee = {
+  employeeEdit: any = {
     fullname: '',
     email: '',
     birthday: '',
@@ -26,6 +26,7 @@ export class EmployeeComponent implements OnInit {
     degree: '',
     specialize: '',
     department: {
+      department_id: 0,
       departmentName: ''
     }
   }
@@ -40,11 +41,11 @@ export class EmployeeComponent implements OnInit {
     id: 'pagination',
     itemsPerPage: 3,
     currentPage: 1
-  } 
+  }
   constructor(
     private employeeService: EmployeeService,
     private departmentService: DepartmentService,
-    private roleSerivice: RoleService
+    private roleSerivice: RoleService,
   ) { }
 
   ngOnInit(): void {
@@ -75,12 +76,14 @@ export class EmployeeComponent implements OnInit {
 
   getById(id: any) {
     this.employeeService.getEmployeeById(id).subscribe((data) => {
+      console.log(data);
       this.employeeEdit = data;
     })
   }
 
   onEdit(value: any, id: any) {
     this.employeeService.updateEmployeeById(value, id).subscribe((data) => {
+      this.getAll()
     })
   }
 

@@ -91,7 +91,7 @@
             <tr
               *ngFor="
                 let employee of employees
-                  | paginate: { itemsPerPage: 3, currentPage: page };
+                  | paginate: { itemsPerPage: 5, currentPage: page };
                 index as index
               "
             >
@@ -177,7 +177,6 @@
                 placeholder="nhập họ và tên"
                 class="form-control"
                 name="fullname"
-                [value]="employeeEdit"
                 [(ngModel)]="employeeEdit.fullname"
                 #fullName="ngModel"
                 required=""
@@ -246,22 +245,20 @@
             <div class="mb-3">
               <label for="specialize" class="form-label">Chức vụ</label>
               <select
-                name="roleName"
+                name="roleId"
                 id="roleId"
-                [(ngModel)]="employeeEdit.role.roleName"
-                #roleName="ngModel"
+                [(ngModel)]="employeeEdit.role.roleId"
+                #roleId="ngModel"
                 required
                 class="form-select"
               >
                 <option [ngValue]="null" selected>Chọn chức vụ</option>
-                <option *ngFor="let role of roles" [ngValue]="role.roleName">
+                <option *ngFor="let role of roles" [ngValue]="role.roleId">
                   {{ role.roleName }}
                 </option>
               </select>
-              <div
-                *ngIf="roleName.invalid && (roleName.dirty || roleName.touched)"
-              >
-                <p *ngIf="roleName.errors?.['required']" class="text-danger">
+              <div *ngIf="roleId.invalid && (roleId.dirty || roleId.touched)">
+                <p *ngIf="roleId.errors?.['required']" class="text-danger">
                   Vui lòng nhập chức vụ
                 </p>
               </div>
@@ -291,16 +288,15 @@
               <label for="specialize" class="form-label">Phòng ban</label>
               <select
                 class="form-select"
-                name="departmentName"
-                [value]="employeeEdit.department.departmentName"
-                [(ngModel)]="employeeEdit.department.departmentName"
+                name="department_id"
+                [(ngModel)]="employeeEdit.department.department_id"
                 #departmentName="ngModel"
                 required
               >
                 <option [ngValue]="null" selected>Chọn phòng ban</option>
                 <option
                   *ngFor="let department of departments"
-                  [ngValue]="department.departmentName"
+                  [ngValue]="department.department_id"
                 >
                   {{ department.departmentName }}
                 </option>
@@ -319,7 +315,14 @@
                 </p>
               </div>
             </div>
-            <button type="submit" class="btn btn-primary">Lưu</button>
+            <button
+              type="submit"
+              [disabled]="employeeEdit.invalid"
+              data-bs-dismiss="modal"
+              class="btn btn-primary"
+            >
+              Lưu
+            </button>
           </form>
         </div>
       </div>
