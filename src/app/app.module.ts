@@ -6,7 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './pages/home/home.component';
-import { EmployeeAddComponent } from './components/modal/employee-add/employee-add.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { TopbarComponent } from './components/topbar/topbar.component';
@@ -16,13 +15,13 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { CardComponent } from './components/card/card.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { RoleComponent } from './pages/role/role.component';
+import { HistoryComponent } from './pages/history/history.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    EmployeeAddComponent,
     LoginComponent,
     SidebarComponent,
     TopbarComponent,
@@ -31,6 +30,7 @@ import { RoleComponent } from './pages/role/role.component';
     DashboardComponent,
     CardComponent,
     RoleComponent,
+    HistoryComponent,
   ],
   imports: [
     BrowserModule,

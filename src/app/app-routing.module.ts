@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { DepartmentComponent } from './pages/department/department.component';
 import { EmployeeComponent } from './pages/employee/employee.component';
+import { HistoryComponent } from './pages/history/history.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RoleComponent } from './pages/role/role.component';
@@ -25,8 +26,14 @@ const routes: Routes = [
         path: 'employee',
         component: EmployeeComponent,
       },
-
-      { path: 'role', component: RoleComponent }
+      {
+        path: 'role',
+        component: RoleComponent
+      },
+      {
+        path: 'history',
+        component: HistoryComponent
+      }
     ]
   },
   {
